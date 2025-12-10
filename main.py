@@ -75,6 +75,14 @@ def main():
 
     print()
     print(explain_recipe(selected))
+
+    # Display detected allergens (best-effort)
+    allergens = selected.get("allergens", [])
+    print()
+    if allergens:
+        print("Allergens (best-effort): " + ", ".join(allergens))
+    else:
+        print("Allergens (best-effort): None detected")
     print()
 
     while True:
@@ -119,7 +127,7 @@ def main():
                         saved = []
                 except Exception:
                     saved = []
-                entry = {"title": selected.get("title"), "saved_at": datetime.utcnow().isoformat()}
+                entry = {"title": selected.get("title"), "saved_at": datetime.utcnow().isoformat(), "allergens": selected.get("allergens", [])}
                 saved.append(entry)
                 with open(saved_path, "w", encoding="utf-8") as f:
                     json.dump(saved, f, indent=2)
@@ -133,6 +141,12 @@ def main():
                     f.write("Ingredients:\n")
                     for ing in recipe_ings:
                         f.write(f" - {ing}\n")
+                    f.write("\nAllergens:\n")
+                    if selected.get("allergens"):
+                        for a in selected.get("allergens"):
+                            f.write(f" - {a}\n")
+                    else:
+                        f.write(" - (none detected)\n")
                     f.write("\nSteps:\n")
                     for step in selected.get("steps", []):
                         f.write(f" - {step}\n")
