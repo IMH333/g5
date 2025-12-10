@@ -10,15 +10,15 @@
 
 | #  | Task (1–2 days)                                      | Owner   | Status       | GitHub Issue |
 |----|-------------------------------------------------------|---------|--------------|--------------|
-| 1  | Create GitHub repo + initial README + .gitignore      | 🔵 Desiree | ✅ Done     | —            |
+| 1  | Create GitHub repo + initial README + .gitignore      | 🟢 David | ✅ Done     | —            |
 | 2  | Set up Python venv + dependencies (openai/anthropic, dotenv, rich/click) | 🔵 Desiree | ⏳ In Progress | —            |
 | 3  | Build basic CLI loop (welcome → input → response → repeat/exit) | 🔵 Desiree | ⏳         |              |
 | 4  | Create `recipes.json` with ~12 common recipes (title, ingredients, steps, tags) | 🔴 Katie | ⏳          |              |
 | 5  | Write recipe matcher (user must have ≥2 required ingredients) | 🔴 Katie | ⏳          |              |
 | 6  | Pretty-print 2–3 recipe suggestions in terminal (Rich tables or cards) | 🔴 Katie | ⏳          |              |
-| 7  | Design conversation flow diagram (Mermaid)            | 🟢 David | ⏳          |              |
+| 7  | Design conversation flow diagram            | 🟢 David | ⏳          |              |
 | 8  | Implement intent detection (regex + keywords)         | 🟢 David | ⏳          |              |
-| 9  | Write system prompt + few-shot examples for natural follow-ups | 🟢 David | ⏳          |              |
+| 9  | Write system prompt + few-shot examples for natural follow-ups | 🟢 David |
 |10  | Integrate OpenAI/Claude API calls with error handling & timeouts | 🟢 David | ⏳          |              |
 |11  | Add session memory (store user ingredients + selected recipe) | 🟡 Morgan | ⏳          |              |
 |12  | Handle “I don’t have X” → use AI to modify/substitute ingredients | 🟡 Morgan | ⏳          |              |

@@ -28,7 +28,7 @@ If OpenAI API is enabled (via `OPENAI_API_KEY`):
 
 ### Database Representation
 **Current state:**
-- ✅ 13 recipes covering diverse cuisines and dietary preferences
+- ✅ 13 recipes covering diverse cuisines and dietary preferences..along with massive database of 100 recipes
 - ✅ Halal, Kosher, Vegan, Vegetarian, Pescatarian options
 - ✅ Mix of global cuisines (Asian, Italian, Indian, Middle Eastern)
 - ⚠️ Could add more African, Latin American, and Middle Eastern recipes
