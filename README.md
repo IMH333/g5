@@ -2,7 +2,7 @@
 **AIEG F25 Capstone Project**
 
 ## 🎯 Quick Pitch
-A conversational CLI chatbot that helps users solve the universal issue of "What should I eat?!" Recipes are based on ingredients they have at home. Users will enter 3 or more ingredients, get 2–3 suggestions, and ask follow-up questions about preparation, cooking time, and ingredient substitutions.  The recipes can also be catered to certain allergies or diestary restrictions.
+A conversational CLI chatbot that helps users solve the universal issue of "What should I eat?!" Recipes are based on ingredients they have at home. Users will enter 3 or more ingredients, get 2–3 suggestions, and ask follow-up questions about preparation, cooking time, and ingredient substitutions.  The recipes can also be catered to certain allergies or dietary restrictions.
 
 ---
 
@@ -273,7 +273,7 @@ We used AI assistants to help plan this project and write starter text and code 
 
 - ✅ **We read and edited all generated content** to make sure we understand it
 - ✅ **We ran the code and tests ourselves** to verify everything works
-- ✅ **We fixed any mistakes or confusing parts** that the AI generated
+- ✅ **We fixed any mistakes or parts that may cause confusion or lack clarity** that the AI generated
 - ✅ **We wrote the final commit messages and pull request descriptions in our own words**
 - ✅ **AI does not replace our learning or testing. It is a helper. We remain responsible for what we submit.**
 
