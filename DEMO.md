@@ -268,4 +268,3 @@ Great! Here are some recipes you can make:
 
 ---
 
-**Last Updated:** December 9, 2025

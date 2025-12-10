@@ -10,9 +10,9 @@ import os
 from typing import Optional, Dict, Any
 
 try:
-    import openai
+    from openai import OpenAI
 except Exception:
-    openai = None
+    OpenAI = None
 
 
 def ask_openai(question: str, recipe: Dict[str, Any], system_prompt: Optional[str] = None, model: str = "gpt-4o-mini") -> Optional[str]:
@@ -28,10 +28,11 @@ def ask_openai(question: str, recipe: Dict[str, Any], system_prompt: Optional[st
         Answer text when successful, or None when API key/library is missing or on error.
     """
     api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key or openai is None:
+    if not api_key or OpenAI is None:
         return None
 
-    openai.api_key = api_key
+    # Initialize OpenAI client with API key
+    client = OpenAI(api_key=api_key)
 
     # Build a compact context for the model
     context = []
@@ -46,17 +47,16 @@ def ask_openai(question: str, recipe: Dict[str, Any], system_prompt: Optional[st
     context.append({"role": "user", "content": f"User question: {question}"})
 
     try:
-        resp = openai.ChatCompletion.create(
+        resp = client.chat.completions.create(
             model=model,
             messages=context,
             max_tokens=500,
             temperature=0.6,
         )
         # Extract answer
-        choices = resp.get("choices")
-        if not choices:
-            return None
-        text = choices[0].get("message", {}).get("content")
-        return text.strip() if text else None
+        if resp.choices and len(resp.choices) > 0:
+            text = resp.choices[0].message.content
+            return text.strip() if text else None
+        return None
     except Exception:
         return None

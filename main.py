@@ -4,6 +4,9 @@ Run: python main.py
 
 This is the entrypoint for the Recipe Suggestion Helper CLI.
 """
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+
 from src.recipe_helper import parse_ingredients, match_recipes, explain_recipe, suggest_substitute, get_available_diets
 from src.openai_helper import ask_openai
 import os
