@@ -103,7 +103,7 @@ def main():
 
     while True:
         try:
-            q = ask_user("Anything else? Ask for substitutions, time, or 'want to make this' to confirm, or 'exit'")
+            q = ask_user("Anything else? Ask for substitutions, time, or 'yes' to confirm, or 'exit'")
         except (EOFError, KeyboardInterrupt):
             print("\nInput closed. Exiting.")
             break
@@ -116,7 +116,7 @@ def main():
             print("Bye — happy cooking!")
             break
         # New: handle confirmation flow
-        if "want to make this" in q.lower() or q.lower().strip() == "want to make this":
+        if "yes" in q.lower() or q.lower().strip() == "yes":
             # Show shopping list vs available ingredients
             have = [i.lower() for i in ingredients]
             recipe_ings = selected.get("ingredients", [])
@@ -127,9 +127,9 @@ def main():
                 mark = "(have)" if ing.lower() in have else "(missing)"
                 print(f" - {ing} {mark}")
 
-            # Estimate cost (very rough heuristic)
-            est_cost = round(len(recipe_ings) * 1.75, 2)
-            print(f"Estimated cost (rough): ${est_cost}")
+            # # Estimate cost (very rough heuristic)
+            # est_cost = round(len(recipe_ings) * 1.75, 2)
+            # print(f"Estimated cost (rough): ${est_cost}")
 
             # Offer to save recipe and write a printable recipe card
             save = ask_user("Save this recipe to your saved list and create a recipe card? (y/n)")
