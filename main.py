@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()  # Load environment variables from .env file
 
 from src.recipe_helper import parse_ingredients, match_recipes, explain_recipe, suggest_substitute, get_available_diets
-from src.openai_helper import ask_openai
+from src.openai_helper import ask_openai, generate_recipes_from_ingredients
 import os
 import sys
 import json
@@ -43,18 +43,19 @@ def main():
         print("Sorry -- ingredients needed to make a meal. Exiting.")
         sys.exit(0)
 
-    matches = match_recipes(ingredients, min_match=2, diet=diet_filter)
+    # Use OpenAI to generate recipes from ingredients
+    print("\n(Generating recipe suggestions...)")
+    matches = generate_recipes_from_ingredients(ingredients, diet=diet_filter)
+    
     if not matches:
-        print("Sorry, I couldn't find recipes matching at least 2 of your ingredients")
-        if diet_filter:
-            print(f"with the '{diet_filter}' dietary requirement.")
-        print("Please add more ingredients or remove2 dietary filters.")
+        print("Sorry, I couldn't generate recipes matching your ingredients and preferences.")
+        print("Please try different ingredients.")
         sys.exit(0)
 
     print("Great! Here are some recipes you can make:")
-    for i, (r, count) in enumerate(matches[:3], 1):
+    for i, r in enumerate(matches[:3], 1):
         diets_str = f" — {', '.join(r.get('diets', []))}" if r.get('diets') else ""
-        print(f"{i}. {r.get('title')} ({r.get('time')}){diets_str} — matches {count} ingredient(s)")
+        print(f"{i}. {r.get('title')} ({r.get('time')}){diets_str}")
 
     choice = ask_user("Which number would you like to know more about, or type a recipe name? (or 'no' to exit)")
     if choice.lower() in ('no', 'n', 'exit', 'quit'):
@@ -65,12 +66,15 @@ def main():
     if choice.isdigit():
         idx = int(choice) - 1
         if 0 <= idx < len(matches[:3]):
-            selected = matches[idx][0]
+            selected = matches[idx]  # Now a dict, not a tuple
+    
+    # If not found by number, try matching title
     if not selected:
-        from src.recipe_helper import find_recipe_by_title_or_index
-        r = find_recipe_by_title_or_index(choice)
-        if r:
-            selected = r
+        choice_norm = choice.lower().strip()
+        for r in matches:
+            if choice_norm in r.get('title', '').lower():
+                selected = r
+                break
 
     if not selected:
         print("Couldn't find that selection. Exiting.")
