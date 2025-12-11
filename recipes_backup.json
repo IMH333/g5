@@ -64,8 +64,8 @@
     "meal_type": "lunch",
     "diets": "vegetarian",
     "tags": "Golden, crispy grilled cheese”
+    ]
 },
-  [
   {
     "title": "Egg Salad Sandwich",
     "ingredients": ["eggs", "mayonnaise", "bread", "salt", "pepper"],
@@ -80,6 +80,21 @@
       "Top with another slice and serve."
     ]
   },
+    {
+  "title": "Veggie Wrap",
+  "ingredients": ["tortilla", "lettuce", "tomato", "cucumber", "hummus"],
+  "time": "10 minutes",
+  "meal_type": "lunch",
+  "diets": ["vegan", "diabetic-friendly"],
+  "tags": "A fresh veggie wrap filled with crisp vegetables and creamy hummus.",
+  "steps": [
+    "Lay the tortilla flat on a plate.",
+    "Spread a generous layer of hummus over the tortilla.",
+    "Add chopped lettuce, sliced tomato, and sliced cucumber.",
+    "Roll the tortilla tightly into a wrap.",
+    "Slice in half and serve."
+  ]
+},
   {
     "title": "Rice and Beans Bowl",
     "ingredients": ["rice", "black beans", "onion", "garlic", "olive oil"],
