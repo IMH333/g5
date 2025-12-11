@@ -64,6 +64,10 @@
     "meal_type": "lunch",
     "diets": ["vegetarian"],
     "tags": "Golden, crispy grilled cheese"
+    "steps": [
+      "Butter the bread slices on one side.",
+      "Place cheese between the unbuttered sides.",
+      "Cook in a pan until golden on both sides."
     ]
 },
   {
