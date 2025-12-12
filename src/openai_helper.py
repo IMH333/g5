@@ -45,7 +45,7 @@ def ask_openai(question: str, recipe: Dict[str, Any], system_prompt: Optional[st
     recipe_summary = f"Title: {recipe.get('title')}\nTime: {recipe.get('time')}\nIngredients: {', '.join(recipe.get('ingredients', []))}\nSteps: {' | '.join(recipe.get('steps', []))}"
     context.append({"role": "user", "content": f"Recipe context:\n{recipe_summary}"})
     context.append({"role": "user", "content": f"User question: {question}"})
-
+    
     try:
         resp = client.chat.completions.create(
             model=model,

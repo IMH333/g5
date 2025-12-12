@@ -5,13 +5,17 @@ Run: python main.py
 This is the entrypoint for the Recipe Suggestion Helper CLI.
 """
 from src.recipe_helper import parse_ingredients, match_recipes, explain_recipe, suggest_substitute, get_available_diets
-from src.openai_helper import ask_openai
+from src.openai_helper import ask_openai, generate_recipes_from_ingredients
 import os
 import sys
 import json
 import re
 from datetime import datetime
-from rich import print 
+from rich import print
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv() 
 
 
 def _safe_filename(title: str) -> str:
@@ -48,18 +52,41 @@ def main():
         print("[pink1]I didn't hear any ingredients. Exiting.[/pink1]")
         sys.exit(0)
 
-    matches = match_recipes(ingredients, min_match=2, diet=diet_filter)
-    if not matches:
-        print("[pink1]Sorry, I couldn't find recipes matching at least 2 of your ingredients[/pink1]")
-        if diet_filter:
-            print(f"[pink1]with the '{diet_filter}' dietary requirement.[pink1]")
-        print("[cyan]Try adding more ingredients or removing dietary filters.[/cyan]")
-        sys.exit(0)
+    # Try ChatGPT first with all user inputs (meal_type, diet, ingredients)
+    print("[cyan]Generating recipes for you...[/cyan]")
+    recipes = None
+    using_chatgpt = False
+    try:
+        recipes = generate_recipes_from_ingredients(ingredients, diet=diet_filter, meal_type=meal_type)
+        if recipes:
+            using_chatgpt = True
+    except:
+        pass
+    
+    # Fall back to JSON recipe matching if ChatGPT unavailable
+    if not recipes:
+        print("[yellow]ChatGPT unavailable, searching recipe database...[/yellow]")
+        matches = match_recipes(ingredients, min_match=2, diet=diet_filter)
+        if not matches:
+            print("[pink1]Sorry, I couldn't find recipes matching at least 2 of your ingredients[/pink1]")
+            if diet_filter:
+                print(f"[pink1]with the '{diet_filter}' dietary requirement.[/pink1]")
+            print("[cyan]Try adding more ingredients or removing dietary filters.[/cyan]")
+            sys.exit(0)
+        # Convert to list of recipes for consistent handling
+        recipes = [r for r, count in matches]
+        match_counts = {r.get('title'): count for r, count in matches}
 
     print("[cyan]Great! Here are some recipes you can make:[/cyan]")
-    for i, (r, count) in enumerate(matches[:3], 1):
-        diets_str = f" — {', '.join(r.get('diets', []))}" if r.get('diets') else ""
-        print(f"{i}. {r.get('title')} ({r.get('time')}){diets_str} — matches {count} ingredient(s)")
+    if using_chatgpt:
+        for i, r in enumerate(recipes[:3], 1):
+            diets_str = f" — {', '.join(r.get('diets', []))}" if r.get('diets') else ""
+            print(f"{i}. {r.get('title')} ({r.get('time')}){diets_str}")
+    else:
+        for i, r in enumerate(recipes[:3], 1):
+            count = match_counts.get(r.get('title'), 0)
+            diets_str = f" — {', '.join(r.get('diets', []))}" if r.get('diets') else ""
+            print(f"{i}. {r.get('title')} ({r.get('time')}){diets_str} — matches {count} ingredient(s)")
 
     choice = ask_user("Which number would you like to know more about, or type a recipe name? (or 'no' to exit)")
     if choice.lower() in ('no', 'n', 'exit', 'quit'):
@@ -69,16 +96,17 @@ def main():
     selected = None
     if choice.isdigit():
         idx = int(choice) - 1
-        if 0 <= idx < len(matches[:3]):
-            selected = matches[idx][0]
-    if not selected:
+        if 0 <= idx < len(recipes[:3]):
+            selected = recipes[idx]
+    if not selected and not using_chatgpt:
+        # Only allow name lookup when using JSON database
         from src.recipe_helper import find_recipe_by_title_or_index
         r = find_recipe_by_title_or_index(choice)
         if r:
             selected = r
 
     if not selected:
-        print("[pink]Couldn't find that selection. Exiting.[/pink1]")
+        print("[pink1]Couldn't find that selection. Exiting.[/pink1]")
         return
 
     print()
