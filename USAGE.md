@@ -60,15 +60,15 @@ Tell me what ingredients you have (comma-separated). Example: 'chicken, rice, br
 What ingredients do you have?
 > tofu, rice, broccoli, soy sauce
 
-Generating 3 more recipe(s) with AI...
-✓ Generated 5 AI recipe(s)
+Generating 3 more recipe(s)...
+✓ Generated 5 recipe(s)
 
 Great! Here are up to 8 recipe options:
 1. Tofu Stir-Fry (20 minutes) — vegan [local] — matches 4 ingredient(s)
 2. Rice Bowl with Tofu (25 minutes) — vegan [local] — matches 4 ingredient(s)
-3. AI-Generated Tofu Bowl (15 minutes) — vegan [AI]
-4. Crispy Tofu & Broccoli (20 minutes) — vegan [AI]
-5. Asian Tofu Rice (25 minutes) — vegan [AI]
+3. AI-Generated Tofu Bowl (15 minutes) — vegan 
+4. Crispy Tofu & Broccoli (20 minutes) — vegan 
+5. Asian Tofu Rice (25 minutes) — vegan 
 ...
 ```
 
