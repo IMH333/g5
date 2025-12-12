@@ -38,6 +38,8 @@ def main():
     meal_choice = ask_user("What type of meal is this? (or press Enter to skip)")
     meal_type = meal_choice.strip() if meal_choice.strip() else None
     
+    print()
+    
     # Ask about dietary preferences
     available_diets = get_available_diets()
     print(f"[cyan]Available dietary options: {', '.join(available_diets)}[/cyan]")
