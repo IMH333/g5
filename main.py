@@ -69,6 +69,7 @@ def main():
     print(f"[cyan]Available meal types: {', '.join(available_meal_types)}[/cyan]")
     meal_choice = ask_user("What type of meal is this? (or press Enter to skip)")
     meal_type = meal_choice.strip() if meal_choice.strip() else None
+    print()
     
     # Ask about dietary preferences
     available_diets = get_available_diets()
@@ -90,7 +91,7 @@ def main():
 
     # If we need more options, auto-generate with OpenAI (if allowed and key present)
     if allow_ai and len(options) < max_results:
-        print(f"[yellow]Generating {max_results - len(options)} more recipe(s) with AI...[/yellow]")
+        print(f"[yellow]Generating {max_results - len(options)} more recipe(s)...[/yellow]")
         print("[dim](This may take a few seconds, especially during high API usage)[/dim]")
         ai_recipes = generate_recipes_from_ingredients(
             ingredients=ingredients,
@@ -98,13 +99,13 @@ def main():
             meal_type=meal_type,
         )
         if ai_recipes:
-            print(f"[green]✓ Generated {len(ai_recipes)} AI recipe(s)[/green]")
+            print(f"[green]✓ Generated {len(ai_recipes)} recipe(s)[/green]")
             for r in ai_recipes:
                 options.append((r, None, "ai"))
                 if len(options) >= max_results:
                     break
         else:
-            print("[pink1]⚠ AI recipe generation was unavailable.[/pink1]")
+            print("[pink1]⚠ Recipe generation was unavailable.[/pink1]")
             print("[dim]This may be due to rate limits or network issues. Showing local matches only.[/dim]")
 
     if not options:
