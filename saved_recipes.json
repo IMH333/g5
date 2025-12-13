@@ -53,5 +53,20 @@
       "fish",
       "dairy"
     ]
+  },
+  {
+    "title": "Chicken and Broccoli Fried Rice",
+    "saved_at": "2025-12-12T23:56:38.776801",
+    "allergens": [
+      "soy",
+      "gluten"
+    ]
+  },
+  {
+    "title": "Grilled Chicken Lettuce Wraps",
+    "saved_at": "2025-12-13T01:11:37.106859",
+    "allergens": [
+      "none"
+    ]
   }
 ]

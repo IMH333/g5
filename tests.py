@@ -1,4 +1,4 @@
-python -m unittest -v
+import unittest
 
 
 def safe_default(ingredients):
@@ -6,9 +6,6 @@ def safe_default(ingredients):
         return "Go grocery shopping"
     return None
 
-
-import unittest
-from main import safe_default
 
 class TestSafeDefault(unittest.TestCase):
 
@@ -21,11 +18,13 @@ def validate_ingredients(raw_input):
     # user types: "apple,   milk,  , bread"
     return [i.strip() for i in raw_input.split(",") if i.strip()]
 
-import unittest
-from main import validate_ingredients
 
 class TestValidateIngredients(unittest.TestCase):
 
     def test_validation_removes_empty_and_strips(self):
         result = validate_ingredients("apple,  milk , , bread  ")
         self.assertEqual(result, ["apple", "milk", "bread"])
+
+
+if __name__ == "__main__":
+    unittest.main()
