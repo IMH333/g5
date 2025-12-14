@@ -98,6 +98,8 @@ def ask_openai(question: str, recipe: Dict[str, Any], system_prompt: Optional[st
             ],
             max_tokens=500,
             temperature=0.6,
+            timeout=10,
+
         )
         if response.choices and len(response.choices) > 0:
             text = response.choices[0].message.content
@@ -182,6 +184,7 @@ Ensure:
             ],
             max_tokens=4000,
             temperature=0.7,
+            timeout=10,
         )
         
         if not response.choices or len(response.choices) == 0:

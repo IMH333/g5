@@ -25,6 +25,18 @@ with open(RECIPES_PATH, "r", encoding="utf-8") as f:
     RECIPES = json.load(f)
 
 
+def normalize(text: str) -> str:
+    """Normalize text for case-insensitive matching.
+    
+    Args:
+        text: Input string
+        
+    Returns:
+        Lowercased and whitespace-stripped string
+    """
+    return text.lower().strip()
+
+
 # Build set of all known ingredients from recipe database
 def _get_valid_ingredients() -> set:
     """Extract all ingredients from recipe database for validation."""
@@ -36,18 +48,6 @@ def _get_valid_ingredients() -> set:
 
 
 VALID_INGREDIENTS = _get_valid_ingredients()
-
-
-def normalize(text: str) -> str:
-    """Normalize text for case-insensitive matching.
-    
-    Args:
-        text: Input string
-        
-    Returns:
-        Lowercased and whitespace-stripped string
-    """
-    return text.lower().strip()
 
 
 def parse_ingredients(text: str) -> List[str]:
