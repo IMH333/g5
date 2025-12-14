@@ -29,7 +29,7 @@ A conversational CLI chatbot that helps users solve the universal issue of "What
 
 ### Prerequisites
 - Python 3.8+
-- No external API key required (works fully offline)
+- Groq API key integrated within .env file but hidden from public.
 
 ### Installation
 
