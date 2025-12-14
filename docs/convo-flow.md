@@ -3,7 +3,7 @@ Python main.py
 CLI initialization followed up with
 - meal_type
 - diet_restrictions
--  > = 3 ingredients
+-  greater than or > = 3 ingredients
 
 parameters ran through logic and hard coded json file with recipes
 - looks for 2 or more ingredient matches for recipe suggestions
@@ -16,7 +16,7 @@ return output to user in form of 5 choices of recipes
 - user chooses a recipe, or can exit program
 
 recipe is chosen
-- stepe by step instructions listed
+- step by step instructions listed
 - macros
 - cost of additional ingredients
 - time for prep and creation
