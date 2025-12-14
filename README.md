@@ -53,6 +53,10 @@ python main.py
 **Example Conversation:**
 ```
 Hi! I'm your Recipe Helper.
+
+What type of meal is this? (breakfast, snack, lunch, dinner)
+> dinner
+
 Available dietary options: halal, kosher, pescatarian, vegan, vegetarian
 Do you have any dietary preferences? (or press Enter to skip)
 > vegan
