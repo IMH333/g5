@@ -1,8 +1,9 @@
 # Recipe Suggestion Helper – CLI AI Chatbot
 **AIEG F25 Capstone Project**
 
-## 🎯 Quick Pitch
+## 🎯 Quick Pitch // Quick Start
 A conversational CLI chatbot that helps users solve the universal issue of "What should I eat?!" Recipes are based on ingredients they have at home. Users will enter 3 or more ingredients, get 2–3 suggestions, and ask follow-up questions about preparation, cooking time, and ingredient substitutions.  The recipes can also be catered to certain allergies or dietary restrictions.
+Getting started is easier than ever - simply run the file on the terminal with "python main.py" and follow the prompts.
 
 ---
 
