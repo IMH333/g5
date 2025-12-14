@@ -16,10 +16,10 @@
 | 4  | Create `recipes.json` with ~12 common recipes (title, ingredients, steps, tags) | 🔴 Katie | ⏳          |              |
 | 5  | Write recipe matcher (user must have ≥2 required ingredients) | 🔴 Katie | ⏳          |              |
 | 6  | Pretty-print 2–3 recipe suggestions in terminal (Rich tables or cards) | 🔴 Katie | ⏳          |              |
-| 7  | Design conversation flow diagram            | 🟢 David | ⏳          |              |
-| 8  | Implement intent detection (regex + keywords)         | 🟢 David | ⏳          |              |
-| 9  | Write system prompt + few-shot examples for natural follow-ups | 🟢 David |
-|10  | Integrate OpenAI API calls with error handling & timeouts | 🟢 David | ⏳          |              |
+| 7  | Design conversation flow diagram            | 🟢 David | ✅ Done           |              |
+| 8  | Implement intent detection (regex + keywords)         | 🟢 David | ✅ Done           |              |
+| 9  | Write system prompt + few-shot examples for natural follow-ups | 🟢 David | ✅ Done 
+|10  | Integrate OpenAI API calls with error handling & timeouts | 🟢 David | ✅ Done           |              |
 |11  | Add session memory (store user ingredients + selected recipe) | 🟡 Morgan | ⏳          |              |
 |12  | Handle “I don’t have X” → use AI to modify/substitute ingredients | 🟡 Morgan | ⏳          |              |
 |13  | Graceful error handling + friendly fallback messages | 🟡 Morgan | ⏳          |              |
