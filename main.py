@@ -113,7 +113,7 @@ def main():
                 if len(options) >= max_results:
                     break
         else:
-            print("[pink1]⚠ Reecipe generation was unavailable.[/pink1]")
+            print("[pink1]⚠ Recipe generation was unavailable.[/pink1]")
             print("[dim]This may be due to rate limits or network issues. Showing local matches only.[/dim]")
 
     if not options:
