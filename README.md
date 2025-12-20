@@ -302,7 +302,7 @@ We used AI assistants to help plan this project and write starter text and code 
 - [ ] **Nutritional Info** – Display calories, protein, carbs per recipe
 - [ ] **API Mode** – Expose as REST API for web frontend
 - [ ] **Multi-Language** – Localization for Spanish, French, Arabic, etc.
-- [ ] **User Skill Level Input - cater recipes to user's culinary skills.
+- [ ] User Skill Level Input - cater recipes to user's culinary skills.
 
 ---
 
