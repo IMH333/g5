@@ -262,7 +262,7 @@ See **[DEMO.md](DEMO.md)** for:
 ## 🔐 Responsibility & Ethics
 
 See **[ETHICS.md](ETHICS.md)** for:
-- **Privacy** – No user data is logged or stored
+- **Privacy** – No user data is logged or stored unless stated by User
 - **Bias** – Recipe database covers multiple dietary preferences and cuisines
 - **Accuracy** – Recipes are simplified; users should verify cooking temps/times
 - **Limitations** – No nutritional info, allergy warnings, or real-time ingredient pricing
@@ -284,6 +284,15 @@ We used AI assistants to help plan this project and write starter text and code 
 
 ---
 
+
+## Risks and Limitations
+| Risk | Impact | Likelihood | Mitigation |
+|-----|--------|------------|------------|
+[ Hallucination from AI in regards to recipes | Medium | AI models are improving overall, but can be more definitive with the prompt | change the prompt in the AI portion ]
+[ Allergy inducing recipe | High | Med-High | Clear warning labels to user / Allergy settings or filter saved for each user ]
+[ Overwhelming noise for user | Medium | Medium | Increase recipe limiting parameters ]
+[ Sub par results | High | High | Every user has differing culinary skills and can produce meals that are well considered unsatisfactory, which may discourage users, which may help to have a user input of culinary skills to cater to recipes ]
+
 ## 🛠️ Future Enhancements
 
 - [ ] **OpenAI Integration** – Richer answers to free-form questions
@@ -293,6 +302,7 @@ We used AI assistants to help plan this project and write starter text and code 
 - [ ] **Nutritional Info** – Display calories, protein, carbs per recipe
 - [ ] **API Mode** – Expose as REST API for web frontend
 - [ ] **Multi-Language** – Localization for Spanish, French, Arabic, etc.
+- [ ] **User Skill Level Input - cater recipes to user's culinary skills.
 
 ---
 
