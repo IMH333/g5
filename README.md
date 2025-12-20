@@ -288,10 +288,10 @@ We used AI assistants to help plan this project and write starter text and code 
 ## Risks and Limitations
 | Risk | Impact | Likelihood | Mitigation |
 |-----|--------|------------|------------|
-[ Hallucination from AI in regards to recipes | Medium | AI models are improving overall, but can be more definitive with the prompt | change the prompt in the AI portion ]
-[ Allergy inducing recipe | High | Med-High | Clear warning labels to user / Allergy settings or filter saved for each user ]
-[ Overwhelming noise for user | Medium | Medium | Increase recipe limiting parameters ]
-[ Sub par results | High | High | Every user has differing culinary skills and can produce meals that are well considered unsatisfactory, which may discourage users, which may help to have a user input of culinary skills to cater to recipes ]
+| Hallucination from AI in regards to recipes | Medium | AI models are improving overall, but can be more definitive with the prompt | change the prompt in the AI portion |
+| Allergy inducing recipe | High | Med-High | Clear warning labels to user / Allergy settings or filter saved for each user |
+| Overwhelming noise for user | Medium | Medium | Increase recipe limiting parameters |
+| Sub par results | High | High | Every user has differing culinary skills and can produce meals that are well considered unsatisfactory, which may discourage users, which may help to have a user input of culinary skills to cater to recipes |
 
 ## 🛠️ Future Enhancements
 
